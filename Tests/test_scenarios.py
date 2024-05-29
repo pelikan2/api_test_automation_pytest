@@ -30,7 +30,7 @@ def test_create_user():
     assert 'id' in response, "id is missing in the response"
     assert type(response['id']) is str, "id data type isn't string"
     assert 'createdAt' in response, "createdAt missing in the response"
-    assert support_functions.check_timestamp(response['createdAt']), "this is not valid timestamp"
+    assert support_functions.check_timestamp(response['createdAt']) is True, "this is not valid timestamp"
     assert response_time < response_time_limit, \
         "Response time is bigger than expected"
     support_functions.check_data_types(response, 2)
